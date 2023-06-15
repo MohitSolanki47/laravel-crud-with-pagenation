@@ -21,6 +21,7 @@
           <th scope="col">name</th>
           <th scope="col">Mobile No</th>
           <th scope="col">email</th>
+          <th scope="col">File</th>
           <th scope="col">Edit</th>
           <th scope="col">Detele</th>
         </tr>
@@ -32,6 +33,12 @@
           <td>{{ $val->name }}</td>
           <td>{{ $val->Mobile_No }}</td>
           <td>{{ $val->email }}</td>
+          <?php  
+              $path = file_get_contents($val->File_Path);
+              $path2 = base64_encode($path);
+          ?>
+          <td><img style='display:block; width:100px;height:100px;' id='base64image'
+              src='data:image/jpeg;base64,<?php echo $path2; ?>' /></td>
           <td><a href="{{ url('edit/'.$val->id) }}" class="btn btn-primary btn-sm">Edit</a></td>
           <td><a href="{{ url('delete/'.$val->id) }}" class="btn btn-primary btn-sm">Delete</a></td>
         </tr>

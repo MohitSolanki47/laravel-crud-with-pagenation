@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\User_table;
 use Illuminate\Http\Request;
 
+use App\Mail\MyEmail;
+use Illuminate\Support\Facades\Mail;
+
 class User extends Controller
 {
     /**
@@ -38,8 +41,18 @@ class User extends Controller
         $POST = new User_table;
         $POST->name= $request->get('name_user');
         $POST->Mobile_No= $request->get('Mobile_No');
-        $POST->email=$request->get('User_Email');
+        $POST->email= $request->get('User_Email');
         
+        // Mail Send  Start
+        $details = [
+            'title' => $request->get('name_user'),
+            'body' => $request->get('Mobile_No')
+        ];
+        // $emails = array("mohit.s@arhamshare.com", "software@arhamshare.com");
+
+        \Mail::to($request->get('User_Email'))->send(new \App\Mail\MyEmail($details));
+        // Mail Send  End
+
         // File Upolad Start
         $fileName = time().'.'.$request->Image->extension();  // Get File Name And Extension
         $image = $request->file('Image');    // Get File 

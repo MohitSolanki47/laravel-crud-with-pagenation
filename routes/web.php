@@ -21,7 +21,7 @@ Route::get('/', function () {
 // insert
 Route::post('/insert',[User::class,'store']);
 Route::get('/Alldata',[User::class,'show']);
+Route::get('/Send_Mail',[User::class,'sendEmail']);
 Route::get('/edit/{id}',[User::class,'edit']);
 Route::post('/update/{id}',[User::class,'update']);
 Route::get('/delete/{id}',[User::class,'destroy']);
-
