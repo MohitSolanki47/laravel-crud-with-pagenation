@@ -38,7 +38,18 @@ class User extends Controller
         $POST = new User_table;
         $POST->name= $request->get('name_user');
         $POST->Mobile_No= $request->get('Mobile_No');
-        $POST->email=$request->get('inputEmail4');
+        $POST->email=$request->get('User_Email');
+        
+        // File Upolad Start
+        $fileName = time().'.'.$request->Image->extension();  // Get File Name And Extension
+        $image = $request->file('Image');    // Get File 
+        $image_name = time().'.'.$image->getClientOriginalExtension(); // Get File Name And Extension
+        
+        $destinationPath = 'E:/Laravel_curd/'; // Upload File Path
+        $path =  $image->move($destinationPath, $image_name);  // Upload Image
+        $POST->File_Path=$path;   // Upload Image Path For Database
+        // File Upolad End
+        
         $POST->save();
         return redirect('/');
         // dd($inputEmail4);

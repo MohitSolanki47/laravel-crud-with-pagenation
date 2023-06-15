@@ -18,6 +18,7 @@ class User extends Migration
             $table->string('name');
             $table->string('Mobile_No');
             $table->string('email');
+            $table->string('File_Path');
             $table->timestamps();
         });
     }

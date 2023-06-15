@@ -9,7 +9,11 @@
     width:30;
   }
 </style>
+<br><br><br>
+
+
   <div class="container">
+  <a href="/">Insert Data </a><br><br>
     <table class="table table-borderd shadow text-center">
       <thead>
         <tr>

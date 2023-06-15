@@ -10,7 +10,8 @@
 <html>
     <div class="container" >
         <h1 class="text-center"> Add Data</h1>
-        <form method="POST" action="/insert" > 
+        <a href="Alldata">View All Data </a><br><br>
+        <form method="POST" action="/insert" enctype="multipart/form-data"> 
         @csrf
             <div class="form-row">
                 <div class="form-group col-md-6">
@@ -26,8 +27,14 @@
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
+                    <label for="inputPassword4">Select Image</label>
+                    <input type="File" class="form-control" name="Image" id="Image" >
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
                     <label for="inputPassword4">Email</label>
-                    <input type="email" class="form-control" name="inputEmail4" id="inputEmail4" placeholder="Email">
+                    <input type="email" class="form-control" name="User_Email" id="User_Email" placeholder="Email">
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Sign in</button>

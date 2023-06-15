@@ -10,5 +10,5 @@ class User_table extends Model
     use HasFactory;
 
     protected $table = "users";    
-    protected $tablefild = ['name', 'Mobile_No','email'];
+    protected $tablefild = ['name','Mobile_No','email','File_Path'];
 }
